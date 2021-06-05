@@ -1,0 +1,133 @@
+$primary-color: #0C387B;
+$secondary-color: #585858;
+
+body {
+    margin: 0;
+    font-family: 'Russo One', sans-serif;
+}
+
+.search-container {
+    background-image: url('../../../images/sky-back.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: 3px solid $primary-color;
+    
+    & .navigation {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+
+        & a {
+            display: inline-block;
+            color: $primary-color;
+            cursor: pointer;
+        }
+
+        & .logo-container {
+            display: inline-block;
+            margin-left: 100px;
+            margin-right: 100px;
+
+            & img {
+                margin-top: 20px;
+                width: 40px;
+            }
+
+            & .website-name {
+                font-size: 24px;
+                margin-top: 0;
+                color: $primary-color;
+            }
+        }
+    }
+
+    & .search-engine {
+        text-align: center;
+        margin-top: 80px;
+        padding-bottom: 50px;
+
+        & .search-engine-input {
+            background: url('../../../images/search-icon.png') no-repeat 10px 10px;
+            background-color: white;
+            padding-left:50px;
+            width: 550px;
+            height: 45px;
+            border: none;
+            border-radius: 6px;
+        }
+    }
+}
+
+.weather-main-box-container {
+    position: relative;
+    background: linear-gradient(98.53deg, rgba(0, 100, 251, 0.0714) 1.25%, rgba(11, 108, 255, 0.126) 35.71%, rgba(255, 255, 255, 0.14) 65.31%, rgba(0, 102, 255, 0.0714) 100%);
+    box-shadow: 4px 4px 11px 3px rgba(3, 103, 254, 0.1);
+    border-radius: 15px;
+    padding-left: 20px;
+    width: 700px;
+    margin-left: 20vw;
+
+    & .weather-main-box-name {
+        font-size: 32px;
+        margin-bottom: 0;
+        color: $secondary-color;
+        padding-top: 15px;
+    }
+
+    & .weather-main-box-location {
+        font-size: 24px;
+        margin-top: 0;
+        margin-bottom: 0;
+        color: $secondary-color;
+    }
+
+    & .weather-main-box-temperature {
+        font-size: 144px;
+        margin-top: 0;
+        margin-bottom: 0;
+        color: $primary-color;
+    }
+
+    & .weather-main-box-condition {
+        font-size: 24px;
+        margin-top: -25px;
+        margin-bottom: 20px;
+        color: $secondary-color;
+    }
+
+    & .weather-main-box-update {
+        margin-top: 0;
+        margin-bottom: 0;
+        color: $secondary-color;
+        padding-bottom: 15px;
+    }
+
+    & .weather-main-box-icon {
+        position: absolute;
+        right: 50px;
+        top: 30px;
+
+        & img {
+            width: 100px;
+            float: right;
+        }
+        
+        & .weather-main-box-minmax-container {
+            display: inline-block;
+
+            & .weather-main-box-max {
+                display: inline-block;
+                margin-right: 10px;
+                margin-top: 40px;
+                color: $secondary-color;
+            }
+
+            & .weather-main-box-min {
+                display: inline-block;
+                color: $secondary-color;
+                margin-rigt: 50px;
+            }
+        }
+    }
+}

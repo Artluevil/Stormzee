@@ -25,7 +25,7 @@ function WeatherSearchEngine() {
                 if(city.name.substring(0, searchValue.length).toLowerCase() === searchValue) {
                     if(dataSuggestions.includes(city.name) === false) {
                         if(dataSuggestions.length < 10) {
-                            dataSuggestions.push(city.name)
+                            dataSuggestions.push([city.name, city.lat, city.lng])
                         }
                     }
                 }
@@ -36,6 +36,7 @@ function WeatherSearchEngine() {
 
     function handleCityClick(city) {
         dispatch(setCityClicked(city))
+        setSearchValue('')
     }
 
     const dataSuggestions = displaySuggestion()
@@ -72,7 +73,7 @@ function WeatherSearchEngine() {
                 <div className="search-suggestion-container">
                     {dataSuggestions.map(city => (
                         <div className="search-suggestion">
-                            <p onClick={() => handleCityClick(city)}>{city}</p>
+                            <p onClick={() => handleCityClick(city)}>{city[0]}</p>
                         </div>
                     ))}
                 </div>

@@ -1,15 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setWeatherDataCurrent, setWeatherDataForecast, setWeatherDataPolution, dataLoading, selectDataCurrent, selectLoading, selectDataForecast } from './weatherSlice';
+import { setWeatherDataCurrent, setWeatherDataForecast, dataLoading, selectDataCurrent, selectCityClicked, setWeatherDataPollution, selectLoading} from './weatherSlice';
 import Logo from '../../images/logo.png'
 import axios from 'axios';
 import WeatherBoxMain from './components/WeatherBoxMain'
+import WeatherBoxAirPollution from './components/WeatherBoxAirPollution'
 import './styles/styles.css'
 
 
 export function Weather() {
     const dispatch = useDispatch()
     const dataWeatherCurrent = useSelector(selectDataCurrent)
+    const isLoading = useSelector(selectLoading)
+    const cityClicked = useSelector(selectCityClicked)
     const [locationLat, setLocationLat] = useState(50)
     const [locationLon, setLocationLon] = useState(50)
 
@@ -17,51 +20,80 @@ export function Weather() {
     //"http://api.weatherapi.com/v1/current.json?q=Poland"
 
     useEffect(() => {
-        const fetchDataCurrent = async () => {
-            dispatch(dataLoading(true))
-            const result = await axios(
-                "http://api.weatherapi.com/v1/current.json",  {
-                params: {
-                    key: '7575329f1b3841369b8101923210306',
-                    q: 'Tarnobrzeg'
-                }
-                }
-            )
-            setLocationLat(result.data.location.lat)
-            setLocationLon(result.data.location.lon)
-            dispatch(setWeatherDataCurrent(result.data))
-            }
-        fetchDataCurrent()
-        const fetchDataForecast = async () => {
-            const result = await axios(
-                "http://api.weatherapi.com/v1/forecast.json",  {
-                params: {
-                    key: '7575329f1b3841369b8101923210306',
-                    q: 'Tarnobrzeg'
-                }
-                }
-            )
-            dispatch(setWeatherDataForecast(result.data))
+        let dataCurrentKey = "http://api.weatherapi.com/v1/current.json"
+        let dataForecastKey = "http://api.weatherapi.com/v1/forecast.json"
+        let dataPollutionKey = "http://api.openweathermap.org/data/2.5/air_pollution"
+
+        const requestDataCurrent = axios.get(dataCurrentKey, {params: {
+            key: '7575329f1b3841369b8101923210306',
+            q: cityClicked[0]
+        }})
+        const requestDataForecast = axios.get(dataForecastKey, {params: {
+            key: '7575329f1b3841369b8101923210306',
+            q: cityClicked[0]
+        }})
+        const requestDataPollution = axios.get(dataPollutionKey, {params: {
+            appid: "9d8a71734cdb32630565574258f3eb19",
+            lat: cityClicked[1],
+            lon: cityClicked[2]
+        }})
+
+        axios.all([requestDataCurrent, requestDataForecast, requestDataPollution]).then(axios.spread((...response) => {
+            dispatch(setWeatherDataCurrent(response[0]))
+            dispatch(setWeatherDataForecast(response[1]))
+            dispatch(setWeatherDataPollution(response[2]))
             dispatch(dataLoading(false))
-            }
-        fetchDataForecast()
-        //"http://api.openweathermap.org/data/2.5/air_pollution?lat=${"+ locationLat +"}&lon=${" + locationLon + "}&appid={a5851b3697bb1b623130df93855c3404}"
-        // const fetchDataPolution = async () => {
+        }))
+
+        // const fetchDataCurrent = async () => {
+        //     dispatch(dataLoading(true))
         //     const result = await axios(
-        //         "http://api.openweathermap.org/data/2.5/air_pollution?lat={50}&lon={50}&appid={9d8a71734cdb32630565574258f3eb19}"
+        //         "http://api.weatherapi.com/v1/current.json",  {
+        //         params: {
+        //             key: '7575329f1b3841369b8101923210306',
+        //             q: cityClicked
+        //         }
+        //         }
+        //     )
+        //     setLocationLat(result.data.location.lat)
+        //     setLocationLon(result.data.location.lon)
+        //     dispatch(setWeatherDataCurrent(result.data))
+        //     }
+        // fetchDataCurrent()
+        // const fetchDataForecast = async () => {
+        //     const result = await axios(
+        //         "http://api.weatherapi.com/v1/forecast.json",  {
+        //         params: {
+        //             key: '7575329f1b3841369b8101923210306',
+        //             q: cityClicked
+        //         }
+        //         }
+        //     )
+        //     dispatch(setWeatherDataForecast(result.data))
+
+        //     }
+        // fetchDataForecast()
+        // //"http://api.openweathermap.org/data/2.5/air_pollution?lat=${"+ locationLat +"}&lon=${" + locationLon + "}&appid={a5851b3697bb1b623130df93855c3404}"
+        // const fetchDataPollution = async () => {
+        //     const result = await axios(
+        //         "http://api.openweathermap.org/data/2.5/air_pollution?lat=50&lon=50&appid=9d8a71734cdb32630565574258f3eb19"
         //     )
         //     console.log(result.data)
-        //     dispatch(setWeatherDataPolution(result.data))
+        //     dispatch(setWeatherDataPollution(result.data))
         //     dispatch(dataLoading(false))
         //     }
-        // fetchDataPolution()
-    }, [])
+        // fetchDataPollution()
+    }, [cityClicked])
 
     return (
         <>
+            {isLoading ? <p>Loading...</p> :
             <div>
-                <WeatherBoxMain />
-            </div>
+                <div className="first-row">
+                    <WeatherBoxMain />
+                    <WeatherBoxAirPollution />
+                </div>
+            </div>}
         </>
     )
 }

@@ -5,9 +5,9 @@ export const weatherSlice = createSlice({
     initialState: {
         dataCurrent: [],
         dataForecast: [],
-        dataPolution: [],
-        cityClicked: 'Warsaw',
-        isLoading: 'hello'
+        dataPollution: [],
+        cityClicked: ['Warsaw', '52.22977', '21.01178'],
+        isLoading: true
     },
     reducers: {
         setWeatherDataCurrent: (state, action) => {
@@ -16,8 +16,8 @@ export const weatherSlice = createSlice({
         setWeatherDataForecast: (state, action) =>{
             state.dataForecast = action.payload
         },
-        setWeatherDataPolution: (state, aciton) => {
-            state.dataPolution = aciton.payload
+        setWeatherDataPollution: (state, aciton) => {
+            state.dataPollution = aciton.payload
         },
         setCityClicked: (state, action) => {
             state.cityClicked = action.payload
@@ -30,9 +30,9 @@ export const weatherSlice = createSlice({
 
 export const selectDataCurrent = (state) => state.weather.dataCurrent
 export const selectDataForecast = (state) => state.weather.dataForecast
-export const selectDataPolution = (state) => state.weather.dataPolution
+export const selectDataPollution = (state) => state.weather.dataPollution
 export const selectCityClicked = (state) => state.weather.cityClicked
 export const selectLoading = (state) => state.weather.isLoading
-export const { setWeatherDataCurrent, setWeatherDataForecast, setWeatherDataPolution, setCityClicked, dataLoading } = weatherSlice.actions
+export const { setWeatherDataCurrent, setWeatherDataForecast, setWeatherDataPollution, setCityClicked, dataLoading } = weatherSlice.actions
 
 export default weatherSlice.reducer

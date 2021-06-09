@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setWeatherDataCurrent, setWeatherDataForecast, dataLoading, selectDataCurrent, selectCityClicked, setWeatherDataPollution, selectLoading} from './weatherSlice';
-import Logo from '../../images/logo.png'
+import { setWeatherDataCurrent, setWeatherDataForecast, dataLoading, selectDataCurrent, selectCityClicked, setWeatherDataPollution, setWeatherDataAll, selectLoading} from './weatherSlice';
 import axios from 'axios';
 import WeatherBoxMain from './components/WeatherBoxMain'
 import WeatherBoxAirPollution from './components/WeatherBoxAirPollution'
+import WeatherPollutionInfo from './components/WeatherPollutionInfo'
+import WeatherBoxHourly from './components/WeatherBoxHourly'
 import './styles/styles.css'
+import { Link, BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 export function Weather() {
@@ -13,8 +15,6 @@ export function Weather() {
     const dataWeatherCurrent = useSelector(selectDataCurrent)
     const isLoading = useSelector(selectLoading)
     const cityClicked = useSelector(selectCityClicked)
-    const [locationLat, setLocationLat] = useState(50)
-    const [locationLon, setLocationLon] = useState(50)
 
 
     //"http://api.weatherapi.com/v1/current.json?q=Poland"
@@ -23,6 +23,7 @@ export function Weather() {
         let dataCurrentKey = "http://api.weatherapi.com/v1/current.json"
         let dataForecastKey = "http://api.weatherapi.com/v1/forecast.json"
         let dataPollutionKey = "http://api.openweathermap.org/data/2.5/air_pollution"
+        let dataAllKey = "https://api.openweathermap.org/data/2.5/onecall"
 
         const requestDataCurrent = axios.get(dataCurrentKey, {params: {
             key: '7575329f1b3841369b8101923210306',
@@ -38,10 +39,18 @@ export function Weather() {
             lon: cityClicked[2]
         }})
 
-        axios.all([requestDataCurrent, requestDataForecast, requestDataPollution]).then(axios.spread((...response) => {
+        const requestDataAll = axios.get(dataAllKey, {params: {
+            appid: "9d8a71734cdb32630565574258f3eb19",
+            lat: cityClicked[1],
+            lon: cityClicked[2],
+            units: "metric",
+        }})
+
+        axios.all([requestDataCurrent, requestDataForecast, requestDataPollution, requestDataAll]).then(axios.spread((...response) => {
             dispatch(setWeatherDataCurrent(response[0]))
             dispatch(setWeatherDataForecast(response[1]))
             dispatch(setWeatherDataPollution(response[2]))
+            dispatch(setWeatherDataAll(response[3]))
             dispatch(dataLoading(false))
         }))
 
@@ -87,13 +96,23 @@ export function Weather() {
 
     return (
         <>
-            {isLoading ? <p>Loading...</p> :
-            <div>
-                <div className="first-row">
-                    <WeatherBoxMain />
-                    <WeatherBoxAirPollution />
-                </div>
-            </div>}
+            <Router>
+                {isLoading ? <p>Loading...</p> :
+                    <Switch>
+                        <Route exact path="/">
+                            <div className="first-row">
+                                <WeatherBoxMain />
+                                <WeatherBoxAirPollution />
+                            </div>
+                            <div className="second-row">
+                                <WeatherBoxHourly />
+                            </div>
+                        </Route>
+                        <Route exact path="/pollutioninfo">
+                            <WeatherPollutionInfo />
+                        </Route>
+                    </Switch>}
+            </Router>
         </>
     )
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 import { selectDataPollution } from '../weatherSlice'
+import { Link, BrowserRouter as Router } from 'react-router-dom'
 
 function WeatherBoxAirPollution() {
 
@@ -30,8 +31,9 @@ function WeatherBoxAirPollution() {
             <div className="weather-box-air-pollution-container">
                 <p className="weather-box-air-pollution-name">Air quality index:</p>
                 <p className="weather-box-air-pollution-index" style={{color: getAirQuality()[2]}}>{getAirQuality()[0]}</p>
-                <p className="weather-box-air-pollution-amount">{dataPollution.data.list[0].components.pm2_5}μg/m3</p>
+                <p className="weather-box-air-pollution-amount">PM2.5: {dataPollution.data.list[0].components.pm2_5}μg/m3</p>
                 <p className="weather-box-air-pollution-description">{getAirQuality()[1]}</p>
+                <Link className="weather-box-air-pollution-link" to="/pollutioninfo">Check details</Link>
             </div>
         </>
     )

@@ -6,6 +6,8 @@ import WeatherBoxMain from './components/WeatherBoxMain'
 import WeatherBoxAirPollution from './components/WeatherBoxAirPollution'
 import WeatherPollutionInfo from './components/WeatherPollutionInfo'
 import WeatherBoxHourly from './components/WeatherBoxHourly'
+import WeatherBoxToday from './components/WeatherBoxToday'
+import WeatherBoxDaily from './components/WeatherBoxDaily'
 import './styles/styles.css'
 import { Link, BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
@@ -106,6 +108,12 @@ export function Weather() {
                             </div>
                             <div className="second-row">
                                 <WeatherBoxHourly />
+                            </div>
+                            <div className="third-row">
+                                <WeatherBoxToday />
+                            </div>
+                            <div className="fourth-row">
+                                <WeatherBoxDaily />
                             </div>
                         </Route>
                         <Route exact path="/pollutioninfo">

@@ -413,6 +413,152 @@ body {
   width: 150px;
 }
 
+.third-row {
+  text-align: center;
+}
+
+.weather-box-today-container {
+  display: inline-block;
+  width: 840px;
+  background: linear-gradient(98.53deg, rgba(0, 100, 251, 0.0714) 1.25%, rgba(11, 108, 255, 0.126) 35.71%, rgba(255, 255, 255, 0.14) 65.31%, rgba(0, 102, 255, 0.0714) 100%);
+  -webkit-box-shadow: 4px 4px 11px 3px rgba(3, 103, 254, 0.1);
+          box-shadow: 4px 4px 11px 3px rgba(3, 103, 254, 0.1);
+  border-radius: 10px;
+  text-align: initial;
+  padding-left: 9vw;
+  padding-right: 9vw;
+  margin-top: 40px;
+}
+
+.weather-box-today-container h2 {
+  color: #585858;
+  font-size: 32px;
+}
+
+.weather-box-today-container .weather-box-today-temp-feelslike-container {
+  width: 820px;
+  display: inline-block;
+  padding-bottom: 20px;
+  color: #585858;
+}
+
+.weather-box-today-container .weather-box-today-temp-feelslike-container .weather-box-today-temp-feelslike-text-container {
+  display: inline-block;
+}
+
+.weather-box-today-container .weather-box-today-temp-feelslike-container .weather-box-today-temp-feelslike-text-container .weather-box-today-temp-feelslike-temperature {
+  font-size: 100px;
+  margin-bottom: 0;
+  margin-top: 0;
+  color: #0C387B;
+}
+
+.weather-box-today-container .weather-box-today-temp-feelslike-container .weather-box-today-temp-feelslike-text-container .weather-box-today-temp-feelslike-text {
+  margin-top: 0;
+  font-size: 24px;
+  color: #585858;
+}
+
+.weather-box-today-container .weather-box-today-temp-feelslike-container .weather-box-today-temp-feelslike-sunrise-container {
+  display: inline-block;
+  float: right;
+  margin-top: 110px;
+}
+
+.weather-box-today-container .weather-box-today-info-container {
+  display: inline-block;
+}
+
+.weather-box-today-container .weather-box-today-info-container div {
+  display: inline-block;
+  width: 400px;
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.weather-box-today-container .weather-box-today-info-container div img {
+  width: 32px;
+  vertical-align: middle;
+}
+
+.weather-box-today-container .weather-box-today-info-container div p {
+  display: inline-block;
+  margin-left: 20px;
+  color: #585858;
+}
+
+.weather-box-today-container .weather-box-today-info-container div .weather-box-today-value {
+  float: right;
+}
+
+.fourth-row {
+  text-align: center;
+}
+
+.weather-box-daily-container {
+  display: inline-block;
+  width: 1100px;
+  background: linear-gradient(98.53deg, rgba(0, 100, 251, 0.0714) 1.25%, rgba(11, 108, 255, 0.126) 35.71%, rgba(255, 255, 255, 0.14) 65.31%, rgba(0, 102, 255, 0.0714) 100%);
+  -webkit-box-shadow: 4px 4px 11px 3px rgba(3, 103, 254, 0.1);
+          box-shadow: 4px 4px 11px 3px rgba(3, 103, 254, 0.1);
+  border-radius: 10px;
+  margin-top: 40px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+
+.weather-box-daily-container h2 {
+  text-align: initial;
+  margin-left: 4vw;
+  font-size: 32px;
+  color: #585858;
+}
+
+.weather-box-daily-container .weather-box-daily-wrapper {
+  text-align: center;
+  display: inline-block;
+}
+
+.weather-box-daily-container .weather-box-daily-wrapper div {
+  width: 170px;
+  display: inline-block;
+  margin: 0px 20px;
+}
+
+.weather-box-daily-container .weather-box-daily-wrapper .weather-box-daily-day {
+  color: #585858;
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.weather-box-daily-container .weather-box-daily-wrapper .weather-box-daily-temp-max {
+  color: #0C387B;
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 3px;
+}
+
+.weather-box-daily-container .weather-box-daily-wrapper .weather-box-daily-temp-min {
+  color: #585858;
+  font-size: 18px;
+  margin-top: 0;
+}
+
+.weather-box-daily-container .weather-box-daily-wrapper .weather-box-daily-pressure-text {
+  font-size: 20px;
+  color: #585858;
+  margin-bottom: 0;
+}
+
+.weather-box-daily-container .weather-box-daily-wrapper .weather-box-daily-pressure-value {
+  font-size: 14px;
+  color: #585858;
+  margin-top: 0;
+}
+
 @media only screen and (max-width: 1100px) {
   .weather-main-box-container {
     width: 400px;

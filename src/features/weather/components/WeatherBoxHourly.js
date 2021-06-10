@@ -1,10 +1,11 @@
 import React from 'react';
-import { selectDataAll } from '../weatherSlice'
+import { selectDataAll, selectDataForecast } from '../weatherSlice'
 import { useSelector } from 'react-redux'
 
 function WeatherBoxHourly() {
 
     const dataHourly = useSelector(selectDataAll)
+    const dataForcast = useSelector(selectDataForecast)
 
     function toCelsius(val) {
         const result = Math.round((val - 32) * 0.5556)
@@ -14,7 +15,7 @@ function WeatherBoxHourly() {
     return (
         <>
             <div className="weather-box-hourly-container">
-                <h2>Tommorow Forecast for {dataHourly.data.timezone}</h2>
+                <h2>Tommorow Forecast for {dataForcast.data.location.name}</h2>
                 <div className="weather-box-hourly-wrapper">
                     <div className="weather-box-hourly-morning">
                         <p className="weather-box-hourly-morning-time-of-day">Morning</p>

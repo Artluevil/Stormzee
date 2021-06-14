@@ -20,7 +20,7 @@ function WeatherBoxMain() {
                         <p className="weather-main-box-condition">{dataCurrent.data.current.condition.text}</p>
                         <p className="weather-main-box-update">Last update: {dataCurrent.data.current.last_updated}</p>
                         <div className="weather-main-box-icon">
-                            <img src={dataCurrent.data.current.condition.icon} />
+                            <img src={dataCurrent.data.current.condition.icon} alt="weather icon"/>
                             <div className="weather-main-box-minmax-container">
                                 <p className="weather-main-box-max">Max: {dataForecast.data.forecast.forecastday[0].day.maxtemp_c}°</p>
                                 <p className="weather-main-box-min">Min: {dataForecast.data.forecast.forecastday[0].day.mintemp_c}°</p>

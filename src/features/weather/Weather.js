@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setWeatherDataCurrent, setWeatherDataForecast, dataLoading, selectDataCurrent, selectCityClicked, setWeatherDataPollution, setWeatherDataAll, selectLoading} from './weatherSlice';
+import { setWeatherDataCurrent, setWeatherDataForecast, dataLoading, selectCityClicked, setWeatherDataPollution, setWeatherDataAll, selectLoading, selectTimeOfDay} from './weatherSlice';
 import axios from 'axios';
 import WeatherBoxMain from './components/WeatherBoxMain'
 import WeatherBoxAirPollution from './components/WeatherBoxAirPollution'
@@ -8,23 +8,24 @@ import WeatherPollutionInfo from './components/WeatherPollutionInfo'
 import WeatherBoxHourly from './components/WeatherBoxHourly'
 import WeatherBoxToday from './components/WeatherBoxToday'
 import WeatherBoxDaily from './components/WeatherBoxDaily'
+import Footer from './Footer'
 import './styles/styles.css'
-import { Link, BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 export function Weather() {
     const dispatch = useDispatch()
-    const dataWeatherCurrent = useSelector(selectDataCurrent)
     const isLoading = useSelector(selectLoading)
     const cityClicked = useSelector(selectCityClicked)
+    const timeOfDay = useSelector(selectTimeOfDay)
 
 
     //"http://api.weatherapi.com/v1/current.json?q=Poland"
 
     useEffect(() => {
-        let dataCurrentKey = "http://api.weatherapi.com/v1/current.json"
-        let dataForecastKey = "http://api.weatherapi.com/v1/forecast.json"
-        let dataPollutionKey = "http://api.openweathermap.org/data/2.5/air_pollution"
+        let dataCurrentKey = "https://api.weatherapi.com/v1/current.json"
+        let dataForecastKey = "https://api.weatherapi.com/v1/forecast.json"
+        let dataPollutionKey = "https://api.openweathermap.org/data/2.5/air_pollution"
         let dataAllKey = "https://api.openweathermap.org/data/2.5/onecall"
 
         const requestDataCurrent = axios.get(dataCurrentKey, {params: {
@@ -33,7 +34,8 @@ export function Weather() {
         }})
         const requestDataForecast = axios.get(dataForecastKey, {params: {
             key: '7575329f1b3841369b8101923210306',
-            q: cityClicked[0]
+            q: cityClicked[0],
+            alerts: "yes"
         }})
         const requestDataPollution = axios.get(dataPollutionKey, {params: {
             appid: "9d8a71734cdb32630565574258f3eb19",
@@ -96,28 +98,46 @@ export function Weather() {
         // fetchDataPollution()
     }, [cityClicked])
 
+    function getBackgroundGrad() {
+        if(timeOfDay === "morning") {
+            return "main-content-rows-morning"
+        } else if(timeOfDay ==="afternoon") {
+            return "main-content-rows-afternoon"
+        }else if(timeOfDay ==="evening") {
+            return "main-content-rows-evening"
+        }else if(timeOfDay ==="overnight") {
+            return "main-content-rows-overnight"
+        }
+    }
+
+
     return (
         <>
             <Router>
                 {isLoading ? <p>Loading...</p> :
                     <Switch>
                         <Route exact path="/">
-                            <div className="first-row">
-                                <WeatherBoxMain />
-                                <WeatherBoxAirPollution />
-                            </div>
-                            <div className="second-row">
-                                <WeatherBoxHourly />
-                            </div>
-                            <div className="third-row">
-                                <WeatherBoxToday />
-                            </div>
-                            <div className="fourth-row">
-                                <WeatherBoxDaily />
+                            <div className={getBackgroundGrad()}>
+                                <div className="first-row">
+                                    <WeatherBoxMain />
+                                    <WeatherBoxAirPollution />
+                                </div>
+                                <div className="second-row">
+                                    <WeatherBoxHourly />
+                                </div>
+                                <div className="third-row">
+                                    <WeatherBoxToday />
+                                </div>
+                                <div className="fourth-row">
+                                    <WeatherBoxDaily />
+                                </div>
+                                <Footer />
                             </div>
                         </Route>
                         <Route exact path="/pollutioninfo">
-                            <WeatherPollutionInfo />
+                            <div className={getBackgroundGrad()}>
+                                <WeatherPollutionInfo />
+                            </div>
                         </Route>
                     </Switch>}
             </Router>

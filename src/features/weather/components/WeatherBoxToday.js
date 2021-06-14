@@ -29,42 +29,42 @@ function WeatherBoxToday() {
                 </div>
                 <div className="weather-box-today-info-container">
                     <div className="weather-box-today-highlow-container">
-                        <img src={ThermometerIcon}/>
+                        <img src={ThermometerIcon} alt="thermometer icon"/>
                         <p>High / Low</p>
                         <p className="weather-box-today-value">{dataForecast.data.forecast.forecastday[0].day.maxtemp_c}°/{dataForecast.data.forecast.forecastday[0].day.mintemp_c}°</p>
                     </div>
                     <div className="weather-box-today-wind-container">
-                        <img src={WindIcon}/>
+                        <img src={WindIcon} alt="wind icon"/>
                         <p>Wind</p>
                         <p className="weather-box-today-value">{dataForecast.data.current.wind_kph}km/h</p>
                     </div>
                     <div className="weather-box-today-humidity-container">
-                        <img src={HumidityIcon}/>
+                        <img src={HumidityIcon} alt="humidity icon"/>
                         <p>Humidity</p>
                         <p className="weather-box-today-value">{dataForecast.data.current.humidity}%</p>
                     </div>
                     <div className="weather-box-today-cloud-container">
-                        <img src={CloudIcon}/>
+                        <img src={CloudIcon} alt="clound icon"/>
                         <p>Cloud</p>
                         <p className="weather-box-today-value">{dataForecast.data.current.cloud} / 100</p>
                     </div>
                     <div className="weather-box-today-pressure-container">
-                        <img src={PressureIcon}/>
+                        <img src={PressureIcon} alt="pressure icon"/>
                         <p>Pressure</p>
                         <p className="weather-box-today-value">{dataForecast.data.current.pressure_mb} mbar</p>
                     </div>
                     <div className="weather-box-today-uv-container">
-                        <img src={UvIcon}/>
+                        <img src={UvIcon} alt="uv light icon"/>
                         <p>UV Index</p>
                         <p className="weather-box-today-value">{dataForecast.data.current.uv}/10</p>
                     </div>
                     <div className="weather-box-today-visibility-container">
-                        <img src={VisibilityIcon}/>
+                        <img src={VisibilityIcon} alt="visibility icon"/>
                         <p>Visibility</p>
                         <p className="weather-box-today-value">{dataForecast.data.current.vis_km} km</p>
                     </div>
                     <div className="weather-box-today-precipitation-container">
-                        <img src={MoonPhaseIcon} />
+                        <img src={MoonPhaseIcon} alt="moon phase icon"/>
                         <p>Moon Phase</p>
                         <p className="weather-box-today-value">{dataForecast.data.forecast.forecastday[0].astro.moon_phase}</p>
                     </div>

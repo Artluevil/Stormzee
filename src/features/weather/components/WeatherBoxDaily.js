@@ -4,15 +4,6 @@ import { selectDataAll } from '../weatherSlice'
 
 function WeatherBoxDaily() {
 
-    function getDate() {
-        let newDate = new Date()
-            let date = newDate.getDate();
-            let month = newDate.getMonth() + 1;
-            let year = newDate.getFullYear();
-            
-            return year + '/' + month + '/' + date
-    }
-
     function timeConverter(UNIX_timestamp){
         var a = new Date(UNIX_timestamp * 1000);
         var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -34,7 +25,7 @@ function WeatherBoxDaily() {
                         <p className="weather-box-daily-day">Today</p>
                         <p className="weather-box-daily-temp-max">{Math.round(dataAll.data.daily[0].temp.max)}°</p>
                         <p className="weather-box-daily-temp-min">{Math.round(dataAll.data.daily[0].temp.min)}°</p>
-                        <img src={"http://openweathermap.org/img/wn/" + dataAll.data.daily[0].weather[0].icon + "@2x.png"}/>
+                        <img src={"http://openweathermap.org/img/wn/" + dataAll.data.daily[0].weather[0].icon + "@2x.png"} alt="weather icon"/>
                         <p className="weather-box-daily-pressure-text">Pressure</p>
                         <p className="weather-box-daily-pressure-value">{dataAll.data.daily[0].pressure} mbar</p>
                     </div>
@@ -42,7 +33,7 @@ function WeatherBoxDaily() {
                         <p className="weather-box-daily-day">{timeConverter(dataAll.data.daily[1].dt)}</p>
                         <p className="weather-box-daily-temp-max">{Math.round(dataAll.data.daily[1].temp.max)}°</p>
                         <p className="weather-box-daily-temp-min">{Math.round(dataAll.data.daily[1].temp.min)}°</p>
-                        <img src={"http://openweathermap.org/img/wn/" + dataAll.data.daily[1].weather[0].icon + "@2x.png"}/>
+                        <img src={"http://openweathermap.org/img/wn/" + dataAll.data.daily[1].weather[0].icon + "@2x.png"} alt="weather icon"/>
                         <p className="weather-box-daily-pressure-text">Pressure</p>
                         <p className="weather-box-daily-pressure-value">{dataAll.data.daily[1].pressure} mbar</p>
                     </div>
@@ -50,7 +41,7 @@ function WeatherBoxDaily() {
                         <p className="weather-box-daily-day">{timeConverter(dataAll.data.daily[2].dt)}</p>
                         <p className="weather-box-daily-temp-max">{Math.round(dataAll.data.daily[2].temp.max)}°</p>
                         <p className="weather-box-daily-temp-min">{Math.round(dataAll.data.daily[2].temp.min)}°</p>
-                        <img src={"http://openweathermap.org/img/wn/" + dataAll.data.daily[2].weather[0].icon + "@2x.png"}/>
+                        <img src={"http://openweathermap.org/img/wn/" + dataAll.data.daily[2].weather[0].icon + "@2x.png"} alt="weather icon"/>
                         <p className="weather-box-daily-pressure-text">Pressure</p>
                         <p className="weather-box-daily-pressure-value">{dataAll.data.daily[2].pressure} mbar</p>
                     </div>
@@ -58,7 +49,7 @@ function WeatherBoxDaily() {
                         <p className="weather-box-daily-day">{timeConverter(dataAll.data.daily[3].dt)}</p>
                         <p className="weather-box-daily-temp-max">{Math.round(dataAll.data.daily[3].temp.max)}°</p>
                         <p className="weather-box-daily-temp-min">{Math.round(dataAll.data.daily[3].temp.min)}°</p>
-                        <img src={"http://openweathermap.org/img/wn/" + dataAll.data.daily[3].weather[0].icon + "@2x.png"}/>
+                        <img src={"http://openweathermap.org/img/wn/" + dataAll.data.daily[3].weather[0].icon + "@2x.png"} alt="weather icon"/>
                         <p className="weather-box-daily-pressure-text">Pressure</p>
                         <p className="weather-box-daily-pressure-value">{dataAll.data.daily[3].pressure} mbar</p>
                     </div>
@@ -66,7 +57,7 @@ function WeatherBoxDaily() {
                         <p className="weather-box-daily-day">{timeConverter(dataAll.data.daily[4].dt)}</p>
                         <p className="weather-box-daily-temp-max">{Math.round(dataAll.data.daily[4].temp.max)}°</p>
                         <p className="weather-box-daily-temp-min">{Math.round(dataAll.data.daily[4].temp.min)}°</p>
-                        <img src={"http://openweathermap.org/img/wn/" + dataAll.data.daily[4].weather[0].icon + "@2x.png"}/>
+                        <img src={"http://openweathermap.org/img/wn/" + dataAll.data.daily[4].weather[0].icon + "@2x.png"} alt="weather icon"/>
                         <p className="weather-box-daily-pressure-text">Pressure</p>
                         <p className="weather-box-daily-pressure-value">{dataAll.data.daily[4].pressure} mbar</p>
                     </div>

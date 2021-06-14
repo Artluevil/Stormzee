@@ -3,15 +3,17 @@ import Logo from '../../../images/logo.png'
 import SearchIcon from '../../../images/search-icon.png'
 import CloseIcon from '../../../images/close.png'
 import citiesData from '../../../data/cities.json'
-import { selectCityClicked, setCityClicked } from '../weatherSlice'
+import { setCityClicked, setTimeOfDay } from '../weatherSlice'
 import { useDispatch } from 'react-redux'
+import SkyMorning from '../../../images/sky-morning.png'
+import SkyAfternoon from '../../../images/sky-afternoon.png'
+import SkyEvening from '../../../images/sky-evening.png'
+import SkyOvernight from '../../../images/sky-overnight.png'
 
 function WeatherSearchEngine() {
 
     const dispatch = useDispatch()
     const [searchValue, setSearchValue] = useState('')
-    const [closeSuggestion, setCloseSuggestion] = useState(false)
-
 
     function handleSuggestions(e) {
         let userInput = e.toLowerCase()
@@ -53,22 +55,37 @@ function WeatherSearchEngine() {
         setSearchValue('')
     }
 
+    function getBackgroundImg() {
+        let d = new Date()
+        let currentHour = d.getHours()
+        if(currentHour >= 4 && currentHour < 9) {
+            dispatch(setTimeOfDay('morning'))
+            return SkyMorning
+        } else if(currentHour >= 9 && currentHour < 18) {
+            dispatch(setTimeOfDay('afternoon'))
+            return SkyAfternoon
+        } else if(currentHour >= 18 && currentHour < 22) {
+            dispatch(setTimeOfDay('evening'))
+            return SkyEvening
+        } else {
+            dispatch(setTimeOfDay('overnight'))
+            return SkyOvernight
+        }
+    }
 
-    return (
-        <div className="search-container">
+    return (<div className="search-container" style={{backgroundImage: 'url(' + getBackgroundImg() + ')'}}>
+        
             <div className="navigation">
-                <a>Link1</a>
                 <div className="logo-container">
-                    <img src={Logo}/>
+                    <img src={Logo} alt="stormzee logo"/>
                     <p className="website-name">Stromzee</p>
                 </div>
-                <a>Link2</a>
             </div>
             <div className="search-engine">
                 <div className="input-wrapper">
-                    <img className="search-icon" src={SearchIcon}/>
+                    <img className="search-icon" src={SearchIcon} alt="search icon"/>
                     <input onChange={(e) => handleSuggestions(e.target.value)} value={searchValue} type="text" className="search-engine-input"></input>
-                    <img className="close-icon" src={CloseIcon} style={handleStyle()} onClick={handleCloseSuggestions}/>
+                    <img className="close-icon" src={CloseIcon} style={handleStyle()} onClick={handleCloseSuggestions} alt="close icon"/>
                 </div>
                 <div className="search-suggestion-container">
                     {dataSuggestions.map(city => (

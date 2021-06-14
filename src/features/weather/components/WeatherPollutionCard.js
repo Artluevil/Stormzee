@@ -45,15 +45,15 @@ const WeatherPollutionCard = (props) => {
                     text={getAverageValue(particle)} 
                     value={getAverageValue(particle)}
                     styles={{
-                    path: {
-                        troke: '#0C387B'
-                    },
-                    trail: {
-                        stroke: '#e4e4e4'
-                    },
-                    text: {
-                        fill: '#0C387B'
-                    }
+                        path: {
+                            stroke: '#0C387B'
+                        },
+                        trail: {
+                            stroke: '#e4e4e4'
+                        },
+                        text: {
+                            fill: '#0C387B'
+                        }
                     }} />
                 </div>
             <div className="weather-pollution-info-text">

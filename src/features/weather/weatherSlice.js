@@ -8,6 +8,7 @@ export const weatherSlice = createSlice({
         dataPollution: [],
         dataAll: [],
         cityClicked: ['Warsaw', '52.22977', '21.01178'],
+        timeOfDay: 'afternoon',
         isLoading: true
     },
     reducers: {
@@ -26,6 +27,9 @@ export const weatherSlice = createSlice({
         setCityClicked: (state, action) => {
             state.cityClicked = action.payload
         },
+        setTimeOfDay: (state, action) => {
+            state.timeOfDay = action.payload
+        },
         dataLoading: (state, action) => {
             state.isLoading = action.payload
         }
@@ -37,7 +41,8 @@ export const selectDataForecast = (state) => state.weather.dataForecast
 export const selectDataPollution = (state) => state.weather.dataPollution
 export const selectDataAll = (state) => state.weather.dataAll
 export const selectCityClicked = (state) => state.weather.cityClicked
+export const selectTimeOfDay = (state) => state.weather.timeOfDay
 export const selectLoading = (state) => state.weather.isLoading
-export const { setWeatherDataCurrent, setWeatherDataForecast, setWeatherDataPollution, setWeatherDataAll, setCityClicked, dataLoading } = weatherSlice.actions
+export const { setWeatherDataCurrent, setWeatherDataForecast, setWeatherDataPollution, setWeatherDataAll, setCityClicked, dataLoading, setTimeOfDay } = weatherSlice.actions
 
 export default weatherSlice.reducer

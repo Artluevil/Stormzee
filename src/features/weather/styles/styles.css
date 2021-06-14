@@ -1,10 +1,10 @@
 body {
   margin: 0;
   font-family: 'Russo One', sans-serif;
+  overflow-x: hidden;
 }
 
 .search-container {
-  background-image: url("../../../images/sky-back.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -99,6 +99,30 @@ body {
   cursor: pointer;
 }
 
+.main-content-rows-morning {
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#FFBFBF));
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFBFBF 100%);
+  background-attachment: fixed;
+}
+
+.main-content-rows-afternoon {
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#98C1FF));
+  background: linear-gradient(180deg, #FFFFFF 0%, #98C1FF 100%);
+  background-attachment: fixed;
+}
+
+.main-content-rows-evening {
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#FF9B7B));
+  background: linear-gradient(180deg, #FFFFFF 0%, #FF9B7B 100%);
+  background-attachment: fixed;
+}
+
+.main-content-rows-overnight {
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#696FA6));
+  background: linear-gradient(180deg, #FFFFFF 0%, #696FA6 100%);
+  background-attachment: fixed;
+}
+
 .first-row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -107,10 +131,10 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-top: 50px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding-top: 50px;
 }
 
 .weather-main-box-wrapper {
@@ -239,6 +263,16 @@ body {
   bottom: 30px;
 }
 
+.weather-box-air-pollution-container .weather-box-air-pollution-graph-container div {
+  display: inline-block;
+}
+
+.weather-box-air-pollution-container .weather-box-air-pollution-graph-container .weather-box-air-pollution-graph-text {
+  vertical-align: middle;
+  margin-bottom: 6px;
+  margin-left: 10px;
+}
+
 .weather-pollution-info-container {
   width: 800px;
   background: linear-gradient(98.53deg, rgba(0, 100, 251, 0.0714) 1.25%, rgba(11, 108, 255, 0.126) 35.71%, rgba(255, 255, 255, 0.14) 65.31%, rgba(0, 102, 255, 0.0714) 100%);
@@ -248,7 +282,6 @@ body {
   margin-right: auto;
   padding-left: 30px;
   padding-right: 30px;
-  margin-top: 50px;
 }
 
 .weather-pollution-info-container .weather-pollution-info-dsc {
@@ -326,6 +359,7 @@ body {
   width: 250px;
   vertical-align: middle;
   margin-left: 25px;
+  color: #585858;
 }
 
 .second-row {
@@ -427,6 +461,7 @@ body {
   text-align: initial;
   padding-left: 9vw;
   padding-right: 9vw;
+  padding-bottom: 30px;
   margin-top: 40px;
 }
 
@@ -559,6 +594,34 @@ body {
   margin-top: 0;
 }
 
+.footer-container {
+  text-align: center;
+  padding-top: 200px;
+  padding-bottom: 50px;
+}
+
+.footer-container .footer-text1 {
+  font-size: 32px;
+  color: #585858;
+}
+
+.footer-container .logos-container .weatherapi-logo {
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.footer-container .footer-text2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: #585858;
+}
+
+.footer-container .footer-text3 {
+  font-size: 20px;
+  margin-top: 0;
+  color: #585858;
+}
+
 @media only screen and (max-width: 1100px) {
   .weather-main-box-container {
     width: 400px;
@@ -671,6 +734,350 @@ body {
     width: 300px;
     margin-top: 30px;
     margin-left: 0;
+  }
+  .weather-box-hourly-container {
+    padding-left: 0vw;
+    padding-right: 0vw;
+    width: 420px;
+  }
+  .weather-box-hourly-container h2 {
+    color: #585858;
+    font-size: 32px;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .weather-box-hourly-container .weather-box-hourly-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .weather-box-hourly-container .weather-box-hourly-wrapper .weather-box-hourly-morning {
+    padding-left: 0vw;
+    padding-right: 0vw;
+  }
+  .weather-box-hourly-container .weather-box-hourly-wrapper .weather-box-hourly-morning img {
+    width: 120px;
+  }
+  .weather-box-hourly-container .weather-box-hourly-wrapper .weather-box-hourly-morning-time-of-day {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #0C387B;
+  }
+  .weather-box-hourly-container .weather-box-hourly-wrapper .weather-box-hourly-morning-temperature {
+    font-size: 20px;
+    margin-top: 0;
+    color: #585858;
+  }
+  .weather-box-hourly-container .weather-box-hourly-wrapper .weather-box-hourly-morning-humidity-name {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #0C387B;
+  }
+  .weather-box-hourly-container .weather-box-hourly-wrapper .weather-box-hourly-morning-humidity {
+    margin-top: 0;
+    color: #585858;
+  }
+  .weather-box-hourly-container .weather-box-hourly-wrapper .weather-box-hourly-afternoon {
+    padding-left: 0vw;
+    padding-right: 0vw;
+  }
+  .weather-box-hourly-container .weather-box-hourly-wrapper .weather-box-hourly-afternoon img {
+    width: 120px;
+  }
+  .weather-box-hourly-container .weather-box-hourly-wrapper .weather-box-hourly-evening {
+    padding-left: 0vw;
+    padding-right: 0vw;
+  }
+  .weather-box-hourly-container .weather-box-hourly-wrapper .weather-box-hourly-evening img {
+    width: 120px;
+  }
+  .weather-box-hourly-container .weather-box-hourly-wrapper .weather-box-hourly-overnight {
+    padding-left: 0vw;
+    padding-right: 0vw;
+  }
+  .weather-box-hourly-container .weather-box-hourly-wrapper .weather-box-hourly-overnight img {
+    width: 120px;
+  }
+  .weather-box-today-container {
+    display: inline-block;
+    width: 380px;
+    background: linear-gradient(98.53deg, rgba(0, 100, 251, 0.0714) 1.25%, rgba(11, 108, 255, 0.126) 35.71%, rgba(255, 255, 255, 0.14) 65.31%, rgba(0, 102, 255, 0.0714) 100%);
+    -webkit-box-shadow: 4px 4px 11px 3px rgba(3, 103, 254, 0.1);
+            box-shadow: 4px 4px 11px 3px rgba(3, 103, 254, 0.1);
+    border-radius: 10px;
+    text-align: initial;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    padding-bottom: 30px;
+    margin-top: 40px;
+  }
+  .weather-box-today-container h2 {
+    color: #585858;
+    font-size: 32px;
+    text-align: center;
+  }
+  .weather-box-today-container .weather-box-today-temp-feelslike-container {
+    width: 820px;
+    display: inline-block;
+    padding-bottom: 20px;
+    color: #585858;
+  }
+  .weather-box-today-container .weather-box-today-temp-feelslike-container .weather-box-today-temp-feelslike-text-container {
+    display: inline-block;
+  }
+  .weather-box-today-container .weather-box-today-temp-feelslike-container .weather-box-today-temp-feelslike-text-container .weather-box-today-temp-feelslike-temperature {
+    font-size: 100px;
+    margin-bottom: 0;
+    margin-top: 0;
+    color: #0C387B;
+  }
+  .weather-box-today-container .weather-box-today-temp-feelslike-container .weather-box-today-temp-feelslike-text-container .weather-box-today-temp-feelslike-text {
+    margin-top: 0;
+    font-size: 24px;
+    color: #585858;
+  }
+  .weather-box-today-container .weather-box-today-temp-feelslike-container .weather-box-today-temp-feelslike-sunrise-container {
+    display: inline-block;
+    float: none;
+    font-size: 12px;
+    margin-top: 110px;
+    margin-left: -60px;
+  }
+  .weather-box-today-container .weather-box-today-info-container {
+    display: inline-block;
+  }
+  .weather-box-today-container .weather-box-today-info-container div {
+    display: inline-block;
+    width: 400px;
+    border-bottom: 1px solid black;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  .weather-box-today-container .weather-box-today-info-container div img {
+    width: 32px;
+    vertical-align: middle;
+  }
+  .weather-box-today-container .weather-box-today-info-container div p {
+    display: inline-block;
+    margin-left: 20px;
+    color: #585858;
+  }
+  .weather-box-today-container .weather-box-today-info-container div .weather-box-today-value {
+    float: right;
+  }
+  .weather-box-daily-container {
+    display: inline-block;
+    width: 390px;
+    background: linear-gradient(98.53deg, rgba(0, 100, 251, 0.0714) 1.25%, rgba(11, 108, 255, 0.126) 35.71%, rgba(255, 255, 255, 0.14) 65.31%, rgba(0, 102, 255, 0.0714) 100%);
+    -webkit-box-shadow: 4px 4px 11px 3px rgba(3, 103, 254, 0.1);
+            box-shadow: 4px 4px 11px 3px rgba(3, 103, 254, 0.1);
+    border-radius: 10px;
+    margin-top: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 3vw;
+    padding-right: 3vw;
+  }
+  .weather-box-daily-container h2 {
+    text-align: center;
+    margin-left: 4vw;
+    font-size: 32px;
+    color: #585858;
+  }
+  .weather-box-daily-container .weather-box-daily-wrapper {
+    text-align: center;
+    display: inline-block;
+  }
+  .weather-box-daily-container .weather-box-daily-wrapper div {
+    width: 170px;
+    display: inline-block;
+    margin: 0px 20px;
+  }
+  .weather-box-daily-container .weather-box-daily-wrapper .weather-box-daily-day {
+    color: #585858;
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  .weather-box-daily-container .weather-box-daily-wrapper .weather-box-daily-temp-max {
+    color: #0C387B;
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 3px;
+  }
+  .weather-box-daily-container .weather-box-daily-wrapper .weather-box-daily-temp-min {
+    color: #585858;
+    font-size: 18px;
+    margin-top: 0;
+  }
+  .weather-box-daily-container .weather-box-daily-wrapper .weather-box-daily-pressure-text {
+    font-size: 20px;
+    color: #585858;
+    margin-bottom: 0;
+  }
+  .weather-box-daily-container .weather-box-daily-wrapper .weather-box-daily-pressure-value {
+    font-size: 14px;
+    color: #585858;
+    margin-top: 0;
+  }
+  .weather-pollution-info-container {
+    width: 400px;
+    background: linear-gradient(98.53deg, rgba(0, 100, 251, 0.0714) 1.25%, rgba(11, 108, 255, 0.126) 35.71%, rgba(255, 255, 255, 0.14) 65.31%, rgba(0, 102, 255, 0.0714) 100%);
+    -webkit-box-shadow: 4px 4px 11px 3px rgba(3, 103, 254, 0.1);
+            box-shadow: 4px 4px 11px 3px rgba(3, 103, 254, 0.1);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .weather-pollution-info-container .weather-pollution-info-dsc {
+    display: inline-block;
+    padding-bottom: 30px;
+    padding-top: 30px;
+  }
+  .weather-pollution-info-container .weather-pollution-info-dsc p {
+    display: inline;
+  }
+  .weather-pollution-info-container .weather-pollution-info-dsc .weather-pollution-info-air {
+    margin-right: 25px;
+    font-size: 28px;
+    color: #585858;
+  }
+  .weather-pollution-info-container .weather-pollution-info-dsc .weather-pollution-info-name {
+    color: #585858;
+  }
+  .weather-pollution-info-container .weather-pollution-info-dsc .weather-pollution-info-country {
+    color: #585858;
+  }
+  .weather-pollution-info-container .weather-pollution-info-graph-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 30px;
+  }
+  .weather-pollution-info-container .weather-pollution-info-graph-text {
+    width: 50%;
+    margin-left: 40px;
+  }
+  .weather-pollution-info-container .weather-pollution-info-graph-text-index {
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  .weather-pollution-info-container .weather-pollution-info-graph-text-description {
+    margin-top: 0;
+    font-size: 20px;
+    color: #585858;
+  }
+  .weather-pollution-all-info-container {
+    width: 400px;
+    background: linear-gradient(98.53deg, rgba(0, 100, 251, 0.0714) 1.25%, rgba(11, 108, 255, 0.126) 35.71%, rgba(255, 255, 255, 0.14) 65.31%, rgba(0, 102, 255, 0.0714) 100%);
+    -webkit-box-shadow: 4px 4px 11px 3px rgba(3, 103, 254, 0.1);
+            box-shadow: 4px 4px 11px 3px rgba(3, 103, 254, 0.1);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    margin-top: 30px;
+  }
+  .weather-pollution-all-info-container div {
+    display: inline-block;
+  }
+  .weather-pollution-info-graph-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 200px;
+    text-align: center;
+  }
+  .weather-pollution-info-graph-wrapper .weather-pollution-info-text {
+    width: 200px;
+    vertical-align: middle;
+    margin-left: 0px;
+    color: #585858;
+  }
+  .search-container {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: 3px solid #0C387B;
+  }
+  .search-container .navigation {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+  .search-container .navigation a {
+    display: inline-block;
+    color: #0C387B;
+    cursor: pointer;
+  }
+  .search-container .navigation .logo-container {
+    display: inline-block;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  .search-container .navigation .logo-container img {
+    margin-top: 20px;
+    width: 40px;
+  }
+  .search-container .navigation .logo-container .website-name {
+    font-size: 24px;
+    margin-top: 0;
+    color: #0C387B;
+  }
+  .search-container .search-engine {
+    position: relative;
+    text-align: center;
+    margin-top: 80px;
+    padding-bottom: 50px;
+  }
+  .search-container .search-engine .search-icon {
+    width: 22px;
+    vertical-align: middle;
+    margin-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .search-container .search-engine .close-icon {
+    width: 16px;
+    vertical-align: middle;
+    margin-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+  }
+  .search-container .search-engine .input-wrapper {
+    display: inline-block;
+    background: white;
+  }
+  .search-container .search-engine .search-engine-input {
+    width: 300px;
+    height: 45px;
+    border: none;
+    font-size: 20px;
+    font-family: 'Russo One', sans-serif;
+  }
+  .search-container .search-engine .search-engine-input:focus {
+    outline: none;
+  }
+  .search-container .search-engine .search-suggestion-container {
+    background: white;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 380px;
+    z-index: 99;
+    margin-top: 2px;
+  }
+  .search-container .search-engine .search-suggestion-container .search-suggestion {
+    border-bottom: 1px solid #e7e7e7;
+    cursor: pointer;
   }
 }
 /*# sourceMappingURL=styles.css.map */

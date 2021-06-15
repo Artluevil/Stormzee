@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Stormzee/static/css/main.e1f328c7.chunk.css",
-    "main.js": "/Stormzee/static/js/main.4f330f53.chunk.js",
-    "main.js.map": "/Stormzee/static/js/main.4f330f53.chunk.js.map",
+    "main.js": "/Stormzee/static/js/main.ccfdaeff.chunk.js",
+    "main.js.map": "/Stormzee/static/js/main.ccfdaeff.chunk.js.map",
     "runtime-main.js": "/Stormzee/static/js/runtime-main.1017d8dd.js",
     "runtime-main.js.map": "/Stormzee/static/js/runtime-main.1017d8dd.js.map",
     "static/css/2.6c0f60ba.chunk.css": "/Stormzee/static/css/2.6c0f60ba.chunk.css",
-    "static/js/2.6589a861.chunk.js": "/Stormzee/static/js/2.6589a861.chunk.js",
-    "static/js/2.6589a861.chunk.js.map": "/Stormzee/static/js/2.6589a861.chunk.js.map",
+    "static/js/2.e7c98e1e.chunk.js": "/Stormzee/static/js/2.e7c98e1e.chunk.js",
+    "static/js/2.e7c98e1e.chunk.js.map": "/Stormzee/static/js/2.e7c98e1e.chunk.js.map",
     "index.html": "/Stormzee/index.html",
     "static/css/2.6c0f60ba.chunk.css.map": "/Stormzee/static/css/2.6c0f60ba.chunk.css.map",
     "static/css/main.e1f328c7.chunk.css.map": "/Stormzee/static/css/main.e1f328c7.chunk.css.map",
-    "static/js/2.6589a861.chunk.js.LICENSE.txt": "/Stormzee/static/js/2.6589a861.chunk.js.LICENSE.txt",
+    "static/js/2.e7c98e1e.chunk.js.LICENSE.txt": "/Stormzee/static/js/2.e7c98e1e.chunk.js.LICENSE.txt",
     "static/media/sky-afternoon.1c2b09f4.png": "/Stormzee/static/media/sky-afternoon.1c2b09f4.png",
     "static/media/sky-evening.5300f31a.png": "/Stormzee/static/media/sky-evening.5300f31a.png",
     "static/media/sky-morning.faa9648d.png": "/Stormzee/static/media/sky-morning.faa9648d.png",
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.1017d8dd.js",
     "static/css/2.6c0f60ba.chunk.css",
-    "static/js/2.6589a861.chunk.js",
+    "static/js/2.e7c98e1e.chunk.js",
     "static/css/main.e1f328c7.chunk.css",
-    "static/js/main.4f330f53.chunk.js"
+    "static/js/main.ccfdaeff.chunk.js"
   ]
 }

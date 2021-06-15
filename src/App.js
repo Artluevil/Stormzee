@@ -1,6 +1,8 @@
 import React from 'react';
 import { Weather } from './features/weather/Weather'
 import WeatherSearchEngine from './features/weather/components/WeatherSearchEngine'
+import WeatherPollutionInfo from './features/weather/components/WeatherPollutionInfo'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
 
@@ -27,10 +29,16 @@ function App() {
   // }, [])
 
   return (
-    <div className="App">
-      <WeatherSearchEngine />
-      <Weather />
-    </div>
+    <>
+      <Router basename={process.env.PUBLIC_URL}>
+        <Switch>
+          <div className="App">
+            <WeatherSearchEngine />
+            <Weather />
+          </div>
+        </Switch>
+      </Router>
+    </>
   );
 }
 

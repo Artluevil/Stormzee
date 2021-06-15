@@ -113,34 +113,31 @@ export function Weather() {
 
     return (
         <>
-            <Router>
-                {isLoading ? <p>Loading...</p> :
-                    <Switch>
-                        <Route exact path="/">
-                            <div className={getBackgroundGrad()}>
-                                <div className="first-row">
-                                    <WeatherBoxMain />
-                                    <WeatherBoxAirPollution />
-                                </div>
-                                <div className="second-row">
-                                    <WeatherBoxHourly />
-                                </div>
-                                <div className="third-row">
-                                    <WeatherBoxToday />
-                                </div>
-                                <div className="fourth-row">
-                                    <WeatherBoxDaily />
-                                </div>
-                                <Footer />
-                            </div>
-                        </Route>
-                        <Route exact path="/pollutioninfo">
-                            <div className={getBackgroundGrad()}>
-                                <WeatherPollutionInfo />
-                            </div>
-                        </Route>
-                    </Switch>}
-            </Router>
+            <Route exact path="/">
+                {isLoading ? <p className="loading-show">Loading...</p> :
+                <div className={getBackgroundGrad()}>
+                    <div className="first-row">
+                        <WeatherBoxMain />
+                        <WeatherBoxAirPollution />
+                    </div>
+                    <div className="second-row">
+                        <WeatherBoxHourly />
+                    </div>
+                    <div className="third-row">
+                        <WeatherBoxToday />
+                    </div>
+                    <div className="fourth-row">
+                        <WeatherBoxDaily />
+                    </div>
+                    <Footer />
+                </div>}
+            </Route>
+            <Route exact path="/pollutioninfo">
+                {isLoading ? <p className="loading-show">Loading...</p> :
+                    <div className={getBackgroundGrad()}>
+                        <WeatherPollutionInfo />
+                    </div>}
+            </Route>
         </>
     )
 }
